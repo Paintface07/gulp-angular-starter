@@ -6,8 +6,10 @@
   var jshint = require('gulp-jshint');
   var stylish = require('jshint-stylish');
   var webserver = require('gulp-webserver');
+  var less = require('gulp-less');
+  var minify = require('gulp-minify-css');
 
-  gulp.task('default', ['lint', 'copy-angular']);
+  gulp.task('default', ['lint', 'copy-angular', 'less']);
   gulp.task('test', ['default', 'watch', 'nodemon']);
 
   gulp.task('webserver', function() {
@@ -30,8 +32,13 @@
       .pipe(jshint.reporter(stylish));
   });
 
-  gulp.task('watch', function() {
-    gulp.watch('app/*', ['lint']);
+  gulp.task('less', function() {
+    return gulp.src('app/styles.less')
+      .pipe(less({
+        paths: [ 'app/**/*.less' ]
+      }))
+      .pipe(minify())
+      .pipe(gulp.dest('app/dist/'));
   });
 
   gulp.task('nodemon', function (cb) {
