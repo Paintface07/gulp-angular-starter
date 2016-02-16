@@ -7,11 +7,12 @@
     <script src="./vendor/angular.min.js" type="text/javascript"></script>
     <script src="./app.module.js" type="text/javascript"></script>
     <script src="./app.config.js" type="text/javascript"></script>
+    <script src="./services/Root.service.js" type="text/javascript"></script>
     <script src="./root/Root.controller.js" type="text/javascript"></script>
   </head>
   <body data-ng-app="app">
-    <div data-ng-controller="RootController">
-      {{ myVal }}
+    <div data-ng-controller="RootController as rt">
+      {{ rt.myVal }}
     </div>
   </body>
 </html>
