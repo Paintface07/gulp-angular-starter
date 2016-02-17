@@ -16,7 +16,7 @@
     gulp.task('test', ['default', 'nodemon']);
 
     // copy-static-deps - copies npm libraries we need to deploy
-    gulp.task('copy-static-deps', ['copy-angular', 'copy-ui-router', 'copy-bootstrap']);
+    gulp.task('copy-static-deps', ['copy-angular', 'copy-ui-router', 'copy-angular-aria', 'copy-bootstrap']);
 
     // *** Copy angular static dependency from release folder ***
     gulp.task('copy-angular', function () {
@@ -28,6 +28,13 @@
     gulp.task('copy-ui-router', function () {
         gulp.src(['node_modules/angular-ui-router/release/angular-ui-router.min.js'])
             .pipe(gulp.dest('app/dist/vendor/angular-ui-router/'));
+    });
+
+    // *** Copy angular-aria static dependency from release folder ***
+    gulp.task('copy-angular-aria', function () {
+        gulp.src(['node_modules/angular-aria/angular-aria.min.js',
+            'node_modules/angular-aria/angular-aria.min.js.map'])
+            .pipe(gulp.dest('app/dist/vendor/angular-aria/'));
     });
 
     // *** Copy angular-bootstrap static dependency from release folder ***
