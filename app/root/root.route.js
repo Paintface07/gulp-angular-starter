@@ -13,13 +13,16 @@
                 'layout' : {
                     controller: 'RootController as rc',
                     templateUrl: './root/main.layout.html'
+                },
+                'header@home' : {
+                    templateUrl: './header/main-header.html'
+                },
+                'footer@home' : {
+                    templateUrl: './footer/main-footer.html'
                 }
             }
         });
 
         $urlRouterProvider.otherwise('/');
-
-        console.log($stateProvider.state);
-        console.log($urlRouterProvider);
     }
 })();

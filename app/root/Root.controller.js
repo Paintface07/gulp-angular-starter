@@ -14,10 +14,8 @@
         function getTestMessage() {
             rootService.getMessage().then(function success(response) {
                 vm.myVal = response.data;
-                console.log(response);
             }, function error(response) {
                 vm.myVal = data.status;
-                console.log(response);
             });
         }
     }

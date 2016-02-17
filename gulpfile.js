@@ -8,12 +8,18 @@
     var webserver = require('gulp-webserver');
     var less = require('gulp-less');
     var minify = require('gulp-minify-css');
+    var clean = require('gulp-clean');
 
     // default build - for deployment
     gulp.task('default', ['lint', 'copy-static-deps', 'less']);
 
     // test build - for testing locally
     gulp.task('test', ['default', 'nodemon']);
+
+    gulp.task('clean-deps', function() {
+        return gulp.src('app/dist', { read: false })
+            .pipe(clean());
+    });
 
     // copy-static-deps - copies npm libraries we need to deploy
     gulp.task('copy-static-deps', ['copy-angular', 'copy-ui-router', 'copy-angular-aria', 'copy-bootstrap']);

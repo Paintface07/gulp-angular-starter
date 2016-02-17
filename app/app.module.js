@@ -1,2 +1,5 @@
-// 'use strict';
-angular.module('app', ['ui.router', 'ngAria', 'ui.bootstrap']);
+(function() {
+     'use strict';
+
+    angular.module('app', ['ui.router', 'ngAria', 'ui.bootstrap']);
+})();
